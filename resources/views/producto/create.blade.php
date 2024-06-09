@@ -20,7 +20,7 @@
 
                             <div class="form-group">
                                 <label for="imagen">Imagen:</label>
-                                <img src="../../../uploads/{{ $productos->img }}" class="img-fluid" width="20%">
+                                <input type="file" name="imagen" class="form-control-file">
                             </div>
 
                             <button type="submit" class="btn btn-primary">Guardar</button>

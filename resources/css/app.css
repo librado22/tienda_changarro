@@ -1,0 +1,15 @@
+/* resources/css/app.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+h1 {
+    color: #343a40;
+}
+
+p {
+    color: #6c757d;
+}

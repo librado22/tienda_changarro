@@ -45,9 +45,9 @@
     </section>
 
     <section class="testimonials">
-        <h2>Testimonios</h2>
+        <h2>quejas y sugerencias </h2>
         <blockquote>
-            <p>"Este es el mejor servicio que he utilizado..."</p>
+            <p>"Es una empresa muy dedicada a su trabajo con lo mejores productos"</p>
             <cite>Cliente Satisfecho</cite>
         </blockquote>
     </section>
@@ -70,7 +70,7 @@
     </section>
 
     <footer>
-        <p>&copy; 2024 Mi Proyecto. Todos los derechos reservados.</p>
+        <p>&copy; 2024 Mi Proyecto.</p>
         <nav>
             <ul>
                 <li><a href="{{ url('/') }}">Inicio</a></li>

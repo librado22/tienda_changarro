@@ -32,15 +32,15 @@
 
     <section class="about">
         <h2>Sobre Nosotros</h2>
-        <p>Somos una empresa dedicada a proporcionar soluciones innovadoras...</p>
+        <p>Somos una empresa dedicada a la venta de productos abarrotera...</p>
     </section>
 
     <section class="services">
         <h2>Servicios</h2>
         <ul>
-            <li>Servicio 1: Descripción breve</li>
-            <li>Servicio 2: Descripción breve</li>
-            <li>Servicio 3: Descripción breve</li>
+            <li>Servicio de calidad en nuestros productos: </li>
+            <li>Servicio de calidad hacia nustros clientes: </li>
+            
         </ul>
     </section>
 

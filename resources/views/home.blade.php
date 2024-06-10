@@ -39,7 +39,7 @@
         <h2>Servicios</h2>
         <ul>
             <li>Servicio de calidad en nuestros productos: </li>
-            <li>Servicio de calidad hacia nustros clientes: </li>
+            <li>Servicio de calidad hacia nuestros clientes: </li>
             
         </ul>
     </section>

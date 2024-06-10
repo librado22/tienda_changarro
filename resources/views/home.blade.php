@@ -32,7 +32,7 @@
 
     <section class="about">
         <h2>Sobre Nosotros</h2>
-        <p>Somos una empresa dedicada a la venta de productos abarrotera...</p>
+        <p>Somos una empresa dedicada a la venta de productos abarrotera contando con la mejor calidad de productos...</p>
     </section>
 
     <section class="services">

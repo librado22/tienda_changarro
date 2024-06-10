@@ -42,6 +42,7 @@ class ProductoController extends Controller
             'descripcion' => 'required|string',
             'precio' => 'required|numeric',
             'imagen' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'stock' => 'nullable|integer'
         ]);
 
         if ($request->hasFile('imagen')) {

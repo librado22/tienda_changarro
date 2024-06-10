@@ -10,8 +10,10 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Scripts -->
+    <!-- Styles -->
+    <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
@@ -35,10 +37,13 @@
                             <a class="nav-link" href="{{ route('ventas.index') }}">Ventas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('provedors.index') }}">Provedors</a>
+                            <a class="nav-link" href="{{ route('provedors.index') }}">Provedores</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('empleados.index') }}">Empleados</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('entradas.create') }}">Entradas</a>
                         </li>
                     </ul>
 

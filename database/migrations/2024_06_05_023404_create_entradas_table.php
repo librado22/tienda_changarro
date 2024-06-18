@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('cantidad_entradas');
             $table->unsignedBigInteger('id_producto');
             $table->unsignedBigInteger('id_proveedor');
-            $table->decimal('precio_unitario', 8, 2);
+            $table->double('precio_unitario', 8, 2);
             $table->timestamps();
 
             // Si usas claves foráneas

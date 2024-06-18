@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Venta;
+use App\Models\Producto;
+
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Requests\VentaRequest;
@@ -16,10 +18,12 @@ class VentaController extends Controller
      */
     public function index(Request $request): View
     {
-        $ventas = Venta::paginate();
+        $ventas = Venta::join("productos","ventas.producto_id","productos.id")
+            ->select("ventas.cantidad","ventas.total","ventas.id","productos.nombre","productos.precio")
+            ->get();
 
-        return view('venta.index', compact('ventas'))
-            ->with('i', ($request->input('page', 1) - 1) * $ventas->perPage());
+        return view('venta.index', compact('ventas'));
+           // ->with('i', ($request->input('page', 1) - 1) * $ventas->perPage());
     }
 
     /**
@@ -27,9 +31,9 @@ class VentaController extends Controller
      */
     public function create(): View
     {
+        $productos=Producto::all();
         $venta = new Venta();
-
-        return view('venta.create', compact('venta'));
+        return view('venta.create', compact('venta','productos'));
     }
 
     /**
@@ -37,7 +41,18 @@ class VentaController extends Controller
      */
     public function store(VentaRequest $request): RedirectResponse
     {
-        Venta::create($request->validated());
+        $request->validated();
+        $total=0;
+        $producto=Producto::find($request->producto_id);
+       
+        $total=$request->cantidad * $producto->precio;
+        $venta=[
+            "producto_id"=>$request->producto_id,
+            "cantidad"=>$request->cantidad,
+            "total"=>$total
+        ];
+      
+        Venta::create($venta);
 
         return Redirect::route('ventas.index')
             ->with('success', 'Venta created successfully.');

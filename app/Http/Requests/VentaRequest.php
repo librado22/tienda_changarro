@@ -24,7 +24,7 @@ class VentaRequest extends FormRequest
         return [
 			'producto_id' => 'required',
 			'cantidad' => 'required',
-			'total' => 'required',
+			//'total' => 'required',
         ];
     }
 }

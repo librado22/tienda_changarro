@@ -38,6 +38,7 @@
                                         
 									<th >Producto Id</th>
 									<th >Cantidad</th>
+                                    <th>precio</th>
 									<th >Total</th>
 
                                         <th></th>
@@ -46,11 +47,12 @@
                                 <tbody>
                                     @foreach ($ventas as $venta)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
+                                            <td>{{ $loop->index+1 }}</td>
                                             
-										<td >{{ $venta->producto_id }}</td>
+										<td >{{ $venta->nombre }}</td>
 										<td >{{ $venta->cantidad }}</td>
-										<td >{{ $venta->total }}</td>
+                                        <td>$ {{$venta->precio}}</td>
+										<td >$ {{ $venta->total }}</td>
 
                                             <td>
                                                 <form action="{{ route('ventas.destroy', $venta->id) }}" method="POST">
@@ -68,7 +70,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $ventas->withQueryString()->links() !!}
+                {{--!! $ventas->withQueryString()->links() !!}--}}
             </div>
         </div>
     </div>

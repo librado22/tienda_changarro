@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id_producto
  * @property int $id_proveedor
  * @property float $precio_unitario
+ * @property float $total
  * @property \Illuminate\Support\Carbon $created_at
  * @property \Illuminate\Support\Carbon $updated_at
  *
@@ -31,7 +32,22 @@ class Entrada extends Model
         'id_producto',
         'id_proveedor',
         'precio_unitario',
+        'total',
     ];
-}
 
- 
+    /**
+     * Get the producto associated with the entrada.
+     */
+    public function producto()
+    {
+        return $this->belongsTo(Producto::class, 'id_producto');
+    }
+
+    /**
+     * Get the proveedor associated with the entrada.
+     */
+    public function proveedor()
+    {
+        return $this->belongsTo(Proveedor::class, 'id_proveedor');
+    }
+}

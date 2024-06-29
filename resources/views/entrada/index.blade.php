@@ -11,11 +11,9 @@
                 <div class="card">
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
-
                             <span id="card_title">
                                 {{ __('Entradas') }}
                             </span>
-
                              <div class="float-right">
                                 <a href="{{ route('entradas.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Crear Nueva') }}
@@ -36,20 +34,22 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Cantidad de Entradas</th>
-                                        <th>ID del Producto</th>
-                                        <th>ID del Proveedor</th>
+                                        <th>Producto</th>
+                                        <th>Proveedor</th>
                                         <th>Precio Unitario</th>
-                                        <th></th>
+                                        <th>Total</th>
+                                        <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($entradas as $entrada)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
+                                        <td>{{ ++$i }}</td>
                                             <td>{{ $entrada->cantidad_entradas }}</td>
                                             <td>{{ $entrada->id_producto }}</td>
                                             <td>{{ $entrada->id_proveedor }}</td>
                                             <td>{{ $entrada->precio_unitario }}</td>
+                                            <td>{{ $entrada->total }}</td>
                                             <td>
                                                 <form action="{{ route('entradas.destroy', $entrada->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary" href="{{ route('entradas.show', $entrada->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Ver') }}</a>
@@ -71,4 +71,9 @@
         </div>
     </div>
 @endsection
+
+
+
+
+
 

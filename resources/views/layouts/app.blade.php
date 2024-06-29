@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -14,11 +14,14 @@
     <!-- Styles -->
     <link href="{{ asset('kaiadmin-lite-1.0.0/assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('kaiadmin-lite-1.0.0/assets/css/style.css') }}" rel="stylesheet">
+    @yield('styles') {{-- Sección para estilos específicos de cada página --}}
+
+    <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
     <div id="app">
-        <!-- Sidebar -->
+        <!-- Navbar -->
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -31,12 +34,15 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
+                        <li class="nav-item"><a class="nav-link" href="{{ route('home.index') }}">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('productos.index') }}">Productos</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('ventas.index') }}">Ventas</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('provedors.index') }}">Proveedores</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('empleados.index') }}">Empleados</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('entradas.create') }}">Entradas</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('tickets.create') }}">Tickets</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('telefonos.create') }}">Telefonos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('venta_mayoreo.create') }}">Ventas Mayoreo</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -79,6 +85,7 @@
     <script src="{{ asset('kaiadmin-lite-1.0.0/assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('kaiadmin-lite-1.0.0/assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('kaiadmin-lite-1.0.0/assets/js/main.js') }}"></script>
+    @yield('scripts') {{-- Sección para scripts específicos de cada página --}}
 </body>
 </html>
 

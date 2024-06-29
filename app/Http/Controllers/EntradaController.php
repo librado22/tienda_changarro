@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Entrada;
 use App\Models\Producto;
-use App\Models\Provedor;
+use App\Models\Provedor; // Debería ser 'Proveedor'
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -23,7 +23,7 @@ class EntradaController extends Controller
     public function create(): View
     {
         $productos = Producto::all();
-        $proveedores = Provedor::all();
+        $proveedores = Provedor::all(); // Debería ser 'Proveedor'
 
         return view('entrada.create', compact('productos', 'proveedores'));
     }
@@ -37,12 +37,21 @@ class EntradaController extends Controller
             'precio_unitario' => 'required|numeric',
         ]);
 
-        Entrada::create($request->all());
+        // Calcular el total antes de crear la entrada
+        $total = $request->cantidad_entradas * $request->precio_unitario;
+
+        // Crear la entrada con el total calculado
+        Entrada::create([
+            'cantidad_entradas' => $request->cantidad_entradas,
+            'id_producto' => $request->id_producto,
+            'id_proveedor' => $request->id_proveedor,
+            'precio_unitario' => $request->precio_unitario,
+            'total' => $total,
+        ]);
 
         return Redirect::route('entradas.index')
             ->with('success', 'Entrada created successfully.');
     }
-
 
     public function show($id): View
     {
@@ -67,7 +76,16 @@ class EntradaController extends Controller
             'precio_unitario' => 'required|numeric',
         ]);
 
-        $entrada->update($request->all());
+        // Calcular el total antes de actualizar la entrada
+        $total = $request->cantidad_entradas * $request->precio_unitario;
+
+        $entrada->update([
+            'cantidad_entradas' => $request->cantidad_entradas,
+            'id_producto' => $request->id_producto,
+            'id_proveedor' => $request->id_proveedor,
+            'precio_unitario' => $request->precio_unitario,
+            'total' => $total,
+        ]);
 
         return Redirect::route('entradas.index')
             ->with('success', 'Entrada updated successfully');
